@@ -1,0 +1,80 @@
+================================================================
+SQL DRILL SET — E-COMMERCE PRACTICE DATABASE
+================================================================
+Rules: 3-minute timer per problem. Write the query cold — no
+docs, no autocomplete hints. Check your answer against the
+solution AFTER you've committed to one, not during.
+
+Tables: customers, products, orders, order_items
+(see schema_and_data.sql for full schema + sample data)
+
+----------------------------------------------------------------
+PROBLEM 1 (Warm-up — joins)
+----------------------------------------------------------------
+List each completed order with the customer's name and the
+order date. Sort by order date ascending.
+
+----------------------------------------------------------------
+PROBLEM 2 (GROUP BY + HAVING)
+----------------------------------------------------------------
+Find customers who have placed more than 2 completed orders.
+Return customer name and their completed order count.
+
+----------------------------------------------------------------
+PROBLEM 3 (Aggregation across tables)
+----------------------------------------------------------------
+For each completed order, calculate its total value
+(sum of quantity * unit_price across its line items).
+Return order_id and total_value, sorted highest to lowest.
+
+----------------------------------------------------------------
+PROBLEM 4 (Window function — ranking)
+----------------------------------------------------------------
+Rank customers by their total spend (completed orders only,
+using order_items). Return customer name, total spend, and
+their rank. Use a window function, not just ORDER BY + LIMIT.
+
+----------------------------------------------------------------
+PROBLEM 5 (Window function — running total)
+----------------------------------------------------------------
+For each month (based on order_date), show total revenue from
+completed orders that month, plus a running cumulative total
+across months.
+
+----------------------------------------------------------------
+PROBLEM 6 (LEFT JOIN / anti-join pattern)
+----------------------------------------------------------------
+Find customers who have NEVER placed a completed order
+(includes customers with zero orders, and customers whose
+orders were all cancelled/refunded).
+
+----------------------------------------------------------------
+PROBLEM 7 (Self-join / LAG — month-over-month)
+----------------------------------------------------------------
+Using the monthly revenue numbers from Problem 5, calculate the
+month-over-month percentage change in revenue.
+
+----------------------------------------------------------------
+PROBLEM 8 (Category-level analysis)
+----------------------------------------------------------------
+For each product category, find total revenue and the number of
+distinct orders that included at least one item from that
+category. (Completed orders only.)
+
+----------------------------------------------------------------
+PROBLEM 9 (Second-highest without OFFSET)
+----------------------------------------------------------------
+Find the customer with the SECOND highest total spend
+(completed orders only). Don't use LIMIT/OFFSET — use a window
+function or subquery so it would still work even with ties.
+
+----------------------------------------------------------------
+PROBLEM 10 (Multi-condition business logic)
+----------------------------------------------------------------
+Find customers who placed a completed order in October 2023 AND
+also placed a completed order in November 2023 (i.e. retained
+across consecutive months).
+
+================================================================
+END OF PROBLEMS — Solutions are in drill_solutions.sql
+================================================================
